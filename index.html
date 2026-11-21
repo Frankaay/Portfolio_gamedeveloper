@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amaechi Franklyn | Game Developer & AI Evaluation Specialist</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        slate: {
+                            850: '#151e32',
+                            900: '#0f172a',
+                            950: '#080d1a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #080d1a;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+        /* Subtle cyber-grid background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+        }
+        /* Game canvas responsive container */
+        #arenaCanvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.75rem;
+            touch-action: none;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080d1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-grid antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+
+    <!-- Top Navigation Bar -->
+    <nav class="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/85 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#top" class="flex items-center gap-2.5 group">
+                <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center text-slate-950 font-mono font-bold text-lg shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+                    AF
+                </div>
+                <span class="font-bold tracking-tight text-slate-100 text-base sm:text-lg">
+                    Amaechi<span class="text-cyan-400">.dev</span>
+                </span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+                <a href="#eval-arena" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Live AI Eval Arena
+                </a>
+                <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+                <a href="#skills" class="hover:text-cyan-400 transition-colors">Tech Stack</a>
+                <a href="#experience" class="hover:text-cyan-400 transition-colors">Impact & Experience</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="https://github.com/frankaay" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs sm:text-sm font-medium transition-all">
+                    <i class="fa-brands fa-github text-base"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="#contact"
+                   class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-semibold text-xs sm:text-sm shadow-lg shadow-cyan-500/20 transition-all">
+                    <span>Hire / Contact</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="top" class="relative pt-14 pb-16 sm:pt-20 sm:pb-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs sm:text-sm mb-6">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>Open to AI Game Evaluation & Interactive Engineering Roles</span>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-10 items-center">
+                <div class="lg:col-span-8">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-4">
+                        Amaechi <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">Franklyn</span>
+                    </h1>
+                    <h2 class="text-lg sm:text-xl lg:text-2xl font-semibold text-slate-300 mb-6">
+                        Game Developer & Interactive Systems Engineer <span class="text-cyan-400">|</span> AI Evaluation Specialist
+                    </h2>
+                    <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mb-8">
+                        Engineer (B.Eng.), Computer Science Instructor, and Full-Stack Web/Interactive Developer specializing in state-machine gameplay logic, systematic bug injection & root-cause debugging, and authoring verifiable technical task briefs with deterministic acceptance criteria.
+                    </p>
+
+                    <!-- Contact Meta Pills -->
+                    <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-300 mb-8">
+                        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800">
+                            <i class="fa-solid fa-location-dot text-cyan-400"></i> Abuja, Nigeria
+                        </span>
+                        <a href="mailto:frankaay4pal@gmail.com" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition-colors">
+                            <i class="fa-solid fa-envelope text-emerald-400"></i> frankaay4pal@gmail.com
+                        </a>
+                        <a href="tel:+2347031825410" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition-colors">
+                            <i class="fa-solid fa-phone text-cyan-400"></i> +234 703 182 5410
+                        </a>
+                        <a href="https://github.com/frankaay" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition-colors">
+                            <i class="fa-brands fa-github text-emerald-400"></i> github.com/frankaay
+                        </a>
+                    </div>
+
+                    <!-- Primary CTAs -->
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#eval-arena"
+                           class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-slate-950 font-bold text-sm sm:text-base shadow-lg shadow-cyan-500/25 transition-all">
+                            <i class="fa-solid fa-play"></i>
+                            <span>Test Live AI Evaluation Demo</span>
+                        </a>
+                        <button onclick="copyContactEmail()"
+                           class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm sm:text-base transition-all">
+                            <i class="fa-regular fa-copy text-cyan-400"></i>
+                            <span id="copyEmailLabel">Copy Email Address</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Terminal Card -->
+                <div class="lg:col-span-4">
+                    <div class="rounded-2xl bg-slate-900/90 border border-slate-800 p-5 shadow-2xl">
+                        <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-800">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                            </div>
+                            <span class="font-mono text-xs text-slate-500">eval_profile.json</span>
+                        </div>
+                        <pre class="font-mono text-xs sm:text-sm leading-relaxed text-slate-300 overflow-x-auto"><code>{
+  <span class="text-cyan-400">"candidate"</span>: <span class="text-emerald-300">"Amaechi Franklyn"</span>,
+  <span class="text-cyan-400">"degree"</span>: <span class="text-emerald-300">"B.Eng. Engineering"</span>,
+  <span class="text-cyan-400">"languages"</span>: [
+    <span class="text-amber-300">"C++"</span>, <span class="text-amber-300">"JavaScript"</span>,
+    <span class="text-amber-300">"HTML5/CSS3"</span>, <span class="text-amber-300">"jQuery"</span>
+  ],
+  <span class="text-cyan-400">"ai_eval_focus"</span>: [
+    <span class="text-emerald-300">"Bug Reproduction"</span>,
+    <span class="text-emerald-300">"Task Brief Design"</span>,
+    <span class="text-emerald-300">"State Verification"</span>
+  ],
+  <span class="text-cyan-400">"status"</span>: <span class="text-emerald-400">"READY_FOR_EVAL"</span>
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quantified Impact Stats Bar -->
+            <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 transition-all">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono uppercase tracking-wider text-cyan-400">Technical Mentorship</span>
+                        <i class="fa-solid fa-users text-slate-600"></i>
+                    </div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white">2,000+</div>
+                    <div class="text-sm text-slate-400 mt-1">Students Mentored in CS & Logic</div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-all">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono uppercase tracking-wider text-emerald-400">Curriculum Impact</span>
+                        <i class="fa-solid fa-chart-line text-slate-600"></i>
+                    </div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white">80% Gain</div>
+                    <div class="text-sm text-slate-400 mt-1">WAEC Exam Pass Rate w/ Distinctions</div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 transition-all">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono uppercase tracking-wider text-cyan-400">Issue Triage & QA</span>
+                        <i class="fa-solid fa-headset text-slate-600"></i>
+                    </div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white">98% CSAT</div>
+                    <div class="text-sm text-slate-400 mt-1">~20 Daily Cases | -75% Wait Time</div>
+                </div>
+
+                <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-all">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-xs font-mono uppercase tracking-wider text-emerald-400">Operations Accuracy</span>
+                        <i class="fa-solid fa-shield-check text-slate-600"></i>
+                    </div>
+                    <div class="text-2xl sm:text-3xl font-extrabold text-white">1,500+ Ops</div>
+                    <div class="text-sm text-slate-400 mt-1">Telecom Porting (90% Accuracy)</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Interactive AI Game Evaluation Challenge Section -->
+    <section id="eval-arena" class="py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 bg-slate-950/60">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs mb-3">
+                        <i class="fa-solid fa-flask"></i>
+                        <span>LIVE PROOF-OF-WORK SANDBOX</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white">Interactive AI Game Evaluation Challenge</h2>
+                    <p class="text-slate-400 mt-2 max-w-2xl text-sm sm:text-base">
+                        Designed to demonstrate end-to-end AI evaluation workflows: toggle between an <span class="text-rose-400 font-semibold">intentionally bugged build</span> and the <span class="text-emerald-400 font-semibold">verified reference solution</span>, playtest the mechanics live, and inspect the designer task brief & acceptance criteria.
+                    </p>
+                </div>
+
+                <!-- Build Switcher Controls -->
+                <div class="flex flex-wrap items-center gap-2 bg-slate-900 p-1.5 rounded-xl border border-slate-800 self-start md:self-auto">
+                    <button id="btnBuggyBuild" onclick="setBuildMode('buggy')"
+                            class="px-4 py-2.5 rounded-lg text-xs sm:text-sm font-mono font-semibold transition-all flex items-center gap-2 bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-sm">
+                        <i class="fa-solid fa-bug"></i>
+                        <span>Buggy Build (Eval Task)</span>
+                    </button>
+                    <button id="btnFixedBuild" onclick="setBuildMode('fixed')"
+                            class="px-4 py-2.5 rounded-lg text-xs sm:text-sm font-mono font-semibold transition-all flex items-center gap-2 text-slate-400 hover:text-slate-200 border border-transparent">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Reference Solution (Fixed)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Arena Grid -->
+            <div class="grid lg:grid-cols-12 gap-6 items-stretch">
+                <!-- Left: Playable Canvas Area -->
+                <div class="lg:col-span-7 flex flex-col bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-xl">
+                    <!-- HUD Header -->
+                    <div class="flex flex-wrap items-center justify-between gap-3 pb-3 mb-3 border-b border-slate-800">
+                        <div class="flex items-center gap-4 font-mono text-xs sm:text-sm">
+                            <span id="buildBadge" class="px-2.5 py-1 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 font-semibold">
+                                MODE: BUGGY_BUILD_v1.0
+                            </span>
+                            <span class="text-slate-300">
+                                Coins: <strong id="hudScore" class="text-amber-400">0</strong>/5
+                            </span>
+                            <span class="text-slate-300">
+                                Time: <strong id="hudTimer" class="text-cyan-400">25.0s</strong>
+                            </span>
+                        </div>
+                        <button onclick="resetGame()"
+                                class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs border border-slate-700 transition-colors flex items-center gap-1.5">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <span>Reset Scene</span>
+                        </button>
+                    </div>
+
+                    <!-- Responsive Canvas Wrapper -->
+                    <div id="canvasWrapper" class="relative w-full h-72 sm:h-80 md:h-96 bg-slate-950 rounded-xl border border-slate-800 overflow-hidden">
+                        <canvas id="arenaCanvas"></canvas>
+
+                        <!-- Overlay Banner for Win / Timeout -->
+                        <div id="gameOverlay" class="hidden absolute inset-0 bg-slate-950/85 backdrop-blur-sm flex flex-col items-center justify-center p-6 text-center">
+                            <div id="overlayIcon" class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-3">
+                                <i class="fa-solid fa-trophy"></i>
+                            </div>
+                            <h3 id="overlayTitle" class="text-xl font-bold text-white mb-1">Acceptance Criteria Verified!</h3>
+                            <p id="overlayDesc" class="text-sm text-slate-300 max-w-md mb-4">
+                                All 5 energy cores collected and exit portal unlocked cleanly.
+                            </p>
+                            <button onclick="resetGame()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 font-bold text-sm">
+                                Playtest Again
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Touch & Keyboard Controls Bar -->
+                    <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="text-xs text-slate-400 font-mono">
+                            <span class="text-slate-200 font-semibold">Controls:</span> Arrow Keys / WASD to Move & Jump • Collect 5 Cores & Enter Portal
+                        </div>
+
+                        <!-- On-Screen Touch D-Pad for Mobile / Mouse Testing -->
+                        <div class="flex items-center gap-2 select-none">
+                            <button id="touchLeft" aria-label="Move Left"
+                                    class="w-11 h-11 rounded-xl bg-slate-800 active:bg-cyan-500/30 border border-slate-700 text-slate-200 flex items-center justify-center">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <button id="touchJump" aria-label="Jump"
+                                    class="px-4 h-11 rounded-xl bg-slate-800 active:bg-emerald-500/30 border border-slate-700 text-emerald-300 font-mono text-xs font-bold flex items-center justify-center">
+                                JUMP
+                            </button>
+                            <button id="touchRight" aria-label="Move Right"
+                                    class="w-11 h-11 rounded-xl bg-slate-800 active:bg-cyan-500/30 border border-slate-700 text-slate-200 flex items-center justify-center">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Designer Task Brief, Bug Diagnostics & Verifiable Success Criteria -->
+                <div class="lg:col-span-5 flex flex-col bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-xl">
+                    <!-- Tabs -->
+                    <div class="flex border-b border-slate-800 mb-4 gap-2">
+                        <button id="tabBrief" onclick="switchInspectorTab('brief')"
+                                class="pb-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 border-cyan-400 text-cyan-400 transition-colors">
+                            Designer Task Brief
+                        </button>
+                        <button id="tabCriteria" onclick="switchInspectorTab('criteria')"
+                                class="pb-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-colors">
+                            Success Criteria
+                        </button>
+                        <button id="tabDiff" onclick="switchInspectorTab('diff')"
+                                class="pb-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-colors">
+                            Bug Root-Cause
+                        </button>
+                    </div>
+
+                    <!-- Tab 1: Designer Task Brief -->
+                    <div id="panelBrief" class="space-y-4 text-sm text-slate-300 flex-1 overflow-y-auto">
+                        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-xs font-mono text-cyan-400 uppercase mb-1">Task ID: EVAL-GAME-042</div>
+                            <h3 class="font-bold text-white text-base mb-1">Arena Core Collector — State & Physics Fix</h3>
+                            <p class="text-slate-400 text-xs leading-relaxed">
+                                "Hey team, QA flagged three critical gameplay blockers in the prototype build of Arena Core Collector. Players are reporting inverted horizontal steering, energy cores disappearing without incrementing the HUD counter, and a frozen countdown timer. Please diagnose and patch all three defects so the stage can be completed reliably."
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-semibold text-white text-xs uppercase tracking-wider mb-2">Injected Defects to Discover (Buggy Build):</h4>
+                            <ul class="space-y-2 text-xs">
+                                <li class="flex items-start gap-2.5 p-2.5 rounded-lg bg-rose-500/10 border border-rose-500/20">
+                                    <span class="font-mono font-bold text-rose-400">BUG-01</span>
+                                    <span><strong>Inverted Horizontal Input Vector:</strong> Pressing Left moves the avatar right, and Right moves left due to a sign inversion in <code class="text-rose-300">vx</code> velocity calculation.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 p-2.5 rounded-lg bg-rose-500/10 border border-rose-500/20">
+                                    <span class="font-mono font-bold text-rose-400">BUG-02</span>
+                                    <span><strong>Broken State Mutation on Pickup:</strong> Collecting a core sets <code class="text-rose-300">coin.collected = true</code> but fails to increment <code class="text-rose-300">gameState.score</code>, soft-locking the exit portal.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5 p-2.5 rounded-lg bg-rose-500/10 border border-rose-500/20">
+                                    <span class="font-mono font-bold text-rose-400">BUG-03</span>
+                                    <span><strong>Delta-Time Timer Stall:</strong> The stage countdown timer fails to decrement per frame (<code class="text-rose-300">dt</code> multiplier zeroed out).</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tab 2: Verifiable Success Criteria -->
+                    <div id="panelCriteria" class="hidden space-y-3 text-xs text-slate-300 flex-1 overflow-y-auto">
+                        <p class="text-slate-400">
+                            An AI agent or developer submission passes evaluation if and only if all deterministic states below verify cleanly:
+                        </p>
+                        <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 space-y-2.5">
+                            <div class="flex items-start gap-2">
+                                <i class="fa-solid fa-check-circle text-emerald-400 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white">Input Sequence Mapping:</strong> Holding <code class="text-cyan-300">ArrowRight</code> / <code class="text-cyan-300">KeyD</code> increases <code class="text-cyan-300">player.x</code> monotonically until arena boundary (<code class="text-cyan-300">x &lt;= width - player.w</code>).
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa-solid fa-check-circle text-emerald-400 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white">Collision & Score State:</strong> AABB overlap between <code class="text-cyan-300">player</code> and uncollected <code class="text-cyan-300">coin[i]</code> sets <code class="text-cyan-300">collected = true</code> and increments <code class="text-cyan-300">score</code> by exact integer <code class="text-cyan-300">+1</code>.
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa-solid fa-check-circle text-emerald-400 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white">Portal Unlock Condition:</strong> When <code class="text-cyan-300">score === 5</code>, exit portal transitions to <code class="text-emerald-300">ACTIVE</code> state; player overlap triggers <code class="text-emerald-300">STAGE_CLEAR</code>.
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <i class="fa-solid fa-check-circle text-emerald-400 mt-0.5"></i>
+                                <div>
+                                    <strong class="text-white">Timer Progression:</strong> <code class="text-cyan-300">timeRemaining</code> decrements smoothly from <code class="text-cyan-300">25.0s</code> toward <code class="text-cyan-300">0.0s</code> during active gameplay.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab 3: Reference Solution Code Diff -->
+                    <div id="panelDiff" class="hidden flex-1 overflow-y-auto">
+                        <p class="text-xs text-slate-400 mb-2">
+                            Reference patch applied when switching to <strong class="text-emerald-400">Reference Solution (Fixed)</strong>:
+                        </p>
+                        <pre class="p-3 rounded-xl bg-slate-950 border border-slate-800 font-mono text-[11px] leading-relaxed overflow-x-auto"><code><span class="text-slate-500">// 1. Fix horizontal input sign inversion</span>
+<span class="text-rose-400">- player.vx = (inputLeft - inputRight) * SPEED;</span>
+<span class="text-emerald-400">+ player.vx = (inputRight - inputLeft) * SPEED;</span>
+
+<span class="text-slate-500">// 2. Increment score & unlock exit portal</span>
+  if (!coin.collected &amp;&amp; checkAABB(player, coin)) {
+    coin.collected = true;
+<span class="text-rose-400">-   // BUG: score increment omitted</span>
+<span class="text-emerald-400">+   gameState.score += 1;</span>
+  }
+
+<span class="text-slate-500">// 3. Restore delta-time countdown progression</span>
+<span class="text-rose-400">- gameState.timer -= dt * 0;</span>
+<span class="text-emerald-400">+ gameState.timer = Math.max(0, gameState.timer - dt);</span></code></pre>
+                    </div>
+
+                    <!-- Live Telemetry Status Footer -->
+                    <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+                        <span class="text-slate-400">Current Build Status:</span>
+                        <span id="telemetryStatus" class="text-rose-400 font-semibold">3 ACTIVE DEFECTS DETECTED</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12">
+                <span class="font-mono text-xs uppercase tracking-wider text-cyan-400">Portfolio & Deliverables</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Featured Engineering & Evaluation Projects</h2>
+                <p class="text-slate-400 mt-2 max-w-2xl text-sm sm:text-base">
+                    Hands-on software systems, algorithmic challenges, and interactive web applications built, debugged, and documented end-to-end.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Project 1 -->
+                <article class="group rounded-2xl bg-slate-900/85 border border-slate-800 hover:border-cyan-500/50 p-6 flex flex-col justify-between transition-all shadow-lg">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs">
+                                AI Evaluation & Game Logic
+                            </span>
+                            <a href="#eval-arena" class="text-xs font-mono text-emerald-400 hover:underline flex items-center gap-1">
+                                <span>Live Above</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-2">
+                            Interactive Bug-Hunt & AI Evaluation Arena
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            A playable 2D HTML5 Canvas platformer/collector environment engineered specifically for evaluating AI coding agents. Features toggleable bug injection (input inversion, state soft-lock, timer stall), deterministic acceptance criteria, and reference patches.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80 font-mono text-xs text-slate-300">
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">JavaScript (ES6+)</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">HTML5 Canvas</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">AABB Physics</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">QA Criteria</span>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="group rounded-2xl bg-slate-900/85 border border-slate-800 hover:border-emerald-500/50 p-6 flex flex-col justify-between transition-all shadow-lg">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs">
+                                Algorithmic Curriculum (8 Modules)
+                            </span>
+                            <a href="https://github.com/frankaay" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-slate-400 hover:text-cyan-400 flex items-center gap-1">
+                                <i class="fa-brands fa-github"></i> <span>GitHub</span>
+                            </a>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors mb-2">
+                            WAEC Coding & Algorithmic Challenge Suite
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            Authored, tested, and debugged 8 structured programming modules and step-by-step tutorials in C++ and JavaScript for 2,000+ students. Included verifiable input/output grading rubrics that boosted WAEC examination pass rates by 80% with distinctions.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80 font-mono text-xs text-slate-300">
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">C++</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">JavaScript</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">Control Flow</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">Test Rubrics</span>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="group rounded-2xl bg-slate-900/85 border border-slate-800 hover:border-cyan-500/50 p-6 flex flex-col justify-between transition-all shadow-lg">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs">
+                                Full-Stack E-Commerce Systems
+                            </span>
+                            <span class="text-xs font-mono text-slate-500">Tecsplen Limited</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-2">
+                            Cutima Furniture Store & Jupiter Online Retail Store
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            Engineered two complete interactive online retail platforms featuring dynamic catalog filtering, shopping cart state management, form validation, and multi-step checkout workflows verified through end-to-end functional testing.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80 font-mono text-xs text-slate-300">
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">HTML5 / CSS3</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">JavaScript</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">jQuery</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">State Management</span>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="group rounded-2xl bg-slate-900/85 border border-slate-800 hover:border-emerald-500/50 p-6 flex flex-col justify-between transition-all shadow-lg">
+                    <div>
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-mono text-xs">
+                                Interactive Service Portal
+                            </span>
+                            <span class="text-xs font-mono text-slate-500">Tecsplen Limited</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-300 transition-colors mb-2">
+                            Mechatronics IT Solution Center Portal
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            Developed a responsive technical service and client support portal integrating interactive UI components, structured technical documentation layouts, and automated client inquiry routing.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800/80 font-mono text-xs text-slate-300">
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">WordPress</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">HTML5 / CSS3</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">jQuery</span>
+                        <span class="px-2.5 py-1 rounded bg-slate-950 border border-slate-800">UI Debugging</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Skills Matrix -->
+    <section id="skills" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80 bg-slate-950/60">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12">
+                <span class="font-mono text-xs uppercase tracking-wider text-emerald-400">Core Capabilities</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Technical Skills & AI Evaluation Matrix</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-3">Programming & Web Stack</h3>
+                    <ul class="space-y-2 text-sm text-slate-300 font-mono">
+                        <li>• C++ (OOP & Logic)</li>
+                        <li>• JavaScript (ES6+)</li>
+                        <li>• HTML5 & CSS3</li>
+                        <li>• jQuery</li>
+                        <li>• WordPress CMS</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-3">Interactive Systems</h3>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li>• 2D Canvas Game Loops</li>
+                        <li>• State-Machine Architecture</li>
+                        <li>• Collision & Physics Logic</li>
+                        <li>• Multi-Step User Flows</li>
+                        <li>• Interactive Simulations</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-bug-slash"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-3">QA & Root-Cause Debugging</h3>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li>• Realistic Bug Injection</li>
+                        <li>• Step-by-Step Reproduction</li>
+                        <li>• Edge-Case Stress Testing</li>
+                        <li>• End-to-End Playtesting</li>
+                        <li>• Reference Solution Patching</li>
+                    </ul>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-lg mb-4">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-base mb-3">AI Evaluation Authoring</h3>
+                    <ul class="space-y-2 text-sm text-slate-300">
+                        <li>• Designer/Producer Briefs</li>
+                        <li>• Deterministic Pass Criteria</li>
+                        <li>• Input/Output Verification</li>
+                        <li>• Active Listening & Triage</li>
+                        <li>• Technical Tutorials & SOPs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education Timeline -->
+    <section id="experience" class="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-slate-800/80">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-12">
+                <span class="font-mono text-xs uppercase tracking-wider text-cyan-400">Track Record</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Experience & Engineering Education</h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Role 1 -->
+                <div class="p-6 rounded-2xl bg-slate-900/85 border border-slate-800">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Computer Science Instructor & Coding Workshop Lead</h3>
+                            <div class="text-sm text-cyan-400 font-medium">New Era Royal Academy / Oxford High Christian Academy / Supreme Regan High — Owerri</div>
+                        </div>
+                        <span class="font-mono text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 self-start">Sep 2023 – Dec 2024</span>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
+                        <li>Mentored <strong>2,000+ students</strong> in C++ and JavaScript programming logic, algorithmic problem solving, and hands-on software debugging.</li>
+                        <li>Designed and debugged <strong>8 WAEC coding exercises and interactive tutorials</strong> with clear acceptance criteria, driving an <strong>80% improvement in exam pass rates with distinctions</strong>.</li>
+                    </ul>
+                </div>
+
+                <!-- Role 2 -->
+                <div class="p-6 rounded-2xl bg-slate-900/85 border border-slate-800">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Technical Customer Support & Issue Resolution Specialist</h3>
+                            <div class="text-sm text-emerald-400 font-medium">Digital Witch Academy Hub (digitawitch.com / softworlddigitalhub.net) — Remote</div>
+                        </div>
+                        <span class="font-mono text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 self-start">Jan 2021 – Aug 2023 | Jan 2025 – Apr 2026</span>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
+                        <li>Resolved <strong>~20 technical support cases daily</strong> across live chat, email, and phone, maintaining a <strong>98% CSAT score</strong> through active listening and structured troubleshooting.</li>
+                        <li>Streamlined triage and defect reproduction documentation, <strong>reducing customer wait times by 75%</strong> and escalating verified edge-case bugs to engineering teams.</li>
+                    </ul>
+                </div>
+
+                <!-- Role 3 -->
+                <div class="p-6 rounded-2xl bg-slate-900/85 border border-slate-800">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Web & Interactive Simulation Developer (Industrial Training)</h3>
+                            <div class="text-sm text-cyan-400 font-medium">Tecsplen Limited — Nigeria</div>
+                        </div>
+                        <span class="font-mono text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 self-start">Jan 2015 – Dec 2015</span>
+                    </div>
+                    <ul class="space-y-2 text-sm text-slate-300 list-disc pl-5">
+                        <li>Engineered and tested <strong>3 full-scale interactive web applications</strong>—Cutima Furniture Store, Jupiter Online Retail Store, and Mechatronics IT Solution Center—using HTML5, CSS3, JavaScript, jQuery, and WordPress.</li>
+                    </ul>
+                </div>
+
+                <!-- Education & Telecom Summary -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 rounded-2xl bg-slate-900/85 border border-slate-800">
+                        <div class="text-xs font-mono text-emerald-400 uppercase mb-1">Academic Qualification</div>
+                        <h3 class="text-lg font-bold text-white">Bachelor of Engineering (B.Eng.)</h3>
+                        <p class="text-sm text-slate-300 mt-1">Michael Okpara University of Agriculture, Umudike</p>
+                        <p class="text-xs font-mono text-slate-400 mt-2">Graduated: March 2018</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-slate-900/85 border border-slate-800">
+                        <div class="text-xs font-mono text-cyan-400 uppercase mb-1">Operations & Compliance</div>
+                        <h3 class="text-lg font-bold text-white">9mobile Limited & INEC Nigeria</h3>
+                        <p class="text-sm text-slate-300 mt-1">Executed 1,500+ SIM porting & activation operations with 90% compliance accuracy (2020) and served as INEC Presiding Officer (2019).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer Section -->
+    <footer id="contact" class="py-16 px-4 sm:px-6 lg:px-8 border-t border-slate-800 bg-slate-950">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-3">Ready to Contribute to Frontier AI Game Evaluation</h2>
+            <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mb-8">
+                Available for remote Game Developer & AI Evaluation Specialist engagements. Reach out directly via email, phone, or GitHub.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <a href="mailto:frankaay4pal@gmail.com"
+                   class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>frankaay4pal@gmail.com</span>
+                </a>
+                <a href="tel:+2347031825410"
+                   class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 text-slate-200 font-semibold text-sm">
+                    <i class="fa-solid fa-phone text-cyan-400"></i>
+                    <span>+234 703 182 5410</span>
+                </a>
+                <a href="https://github.com/frankaay" target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500/50 text-slate-200 font-semibold text-sm">
+                    <i class="fa-brands fa-github text-emerald-400"></i>
+                    <span>github.com/frankaay</span>
+                </a>
+            </div>
+
+            <div class="text-xs text-slate-500 font-mono">
+                © 2026 Amaechi Franklyn • Abuja, Nigeria • Built for GitHub Pages (frankaay.github.io)
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Portfolio & HTML5 Canvas Game Engine Script -->
+    <script>
+        // Clipboard copy helper (iframe-safe)
+        function copyContactEmail() {
+            const tempInput = document.createElement('input');
+            tempInput.value = 'frankaay4pal@gmail.com';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const label = document.getElementById('copyEmailLabel');
+            label.textContent = 'Copied: frankaay4pal@gmail.com';
+            setTimeout(() => {
+                label.textContent = 'Copy Email Address';
+            }, 2500);
+        }
+
+        // Inspector Tabs Logic
+        function switchInspectorTab(tab) {
+            const tabs = ['brief', 'criteria', 'diff'];
+            tabs.forEach(t => {
+                const btn = document.getElementById('tab' + t.charAt(0).toUpperCase() + t.slice(1));
+                const panel = document.getElementById('panel' + t.charAt(0).toUpperCase() + t.slice(1));
+                if (t === tab) {
+                    btn.classList.add('border-cyan-400', 'text-cyan-400');
+                    btn.classList.remove('border-transparent', 'text-slate-400');
+                    panel.classList.remove('hidden');
+                } else {
+                    btn.classList.remove('border-cyan-400', 'text-cyan-400');
+                    btn.classList.add('border-transparent', 'text-slate-400');
+                    panel.classList.add('hidden');
+                }
+            });
+        }
+
+        // ==========================================
+        // PLAYABLE AI EVALUATION CHALLENGE ARENA
+        // ==========================================
+        const canvas = document.getElementById('arenaCanvas');
+        const ctx = canvas.getContext('2d');
+        const wrapper = document.getElementById('canvasWrapper');
+
+        let buildMode = 'buggy'; // 'buggy' | 'fixed'
+        let lastTime = 0;
+
+        // Logical coordinate space (640 x 360) scaled responsively
+        const WORLD_W = 640;
+        const WORLD_H = 360;
+
+        const keys = {
+            left: false,
+            right: false,
+            up: false
+        };
+
+        const player = {
+            x: 48,
+            y: 260,
+            w: 26,
+            h: 32,
+            vx: 0,
+            vy: 0,
+            speed: 230,
+            jumpForce: -430,
+            grounded: false
+        };
+
+        const gravity = 1050;
+
+        // Platforms layout
+        const platforms = [
+            { x: 0, y: 324, w: 640, h: 36 },     // Ground floor
+            { x: 110, y: 248, w: 130, h: 14 },   // Step 1
+            { x: 300, y: 196, w: 140, h: 14 },   // Step 2
+            { x: 475, y: 142, w: 130, h: 14 },   // High right ledge
+            { x: 65, y: 132, w: 145, h: 14 }     // High left ledge
+        ];
+
+        // 5 Energy Cores to collect
+        let coins = [];
+
+        // Exit Portal
+        const portal = {
+            x: 545,
+            y: 82,
+            w: 36,
+            h: 54
+        };
+
+        let gameState = {
+            score: 0,
+            timer: 25.0,
+            status: 'PLAYING' // 'PLAYING' | 'WON' | 'TIMEOUT'
+        };
+
+        function initCoins() {
+            coins = [
+                { x: 168, y: 218, r: 9, collected: false },
+                { x: 362, y: 166, r: 9, collected: false },
+                { x: 128, y: 102, r: 9, collected: false },
+                { x: 320, y: 292, r: 9, collected: false },
+                { x: 495, y: 112, r: 9, collected: false }
+            ];
+        }
+
+        function resetGame() {
+            player.x = 48;
+            player.y = 260;
+            player.vx = 0;
+            player.vy = 0;
+            player.grounded = false;
+
+            gameState.score = 0;
+            gameState.timer = 25.0;
+            gameState.status = 'PLAYING';
+
+            initCoins();
+            document.getElementById('gameOverlay').classList.add('hidden');
+            updateHUD();
+        }
+
+        function setBuildMode(mode) {
+            buildMode = mode;
+            const btnBuggy = document.getElementById('btnBuggyBuild');
+            const btnFixed = document.getElementById('btnFixedBuild');
+            const badge = document.getElementById('buildBadge');
+            const telemetry = document.getElementById('telemetryStatus');
+
+            if (mode === 'buggy') {
+                btnBuggy.className = 'px-4 py-2.5 rounded-lg text-xs sm:text-sm font-mono font-semibold transition-all flex items-center gap-2 bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-sm';
+                btnFixed.className = 'px-4 py-2.5 rounded-lg text-xs sm:text-sm font-mono font-semibold transition-all flex items-center gap-2 text-slate-400 hover:text-slate-200 border border-transparent';
+                badge.className = 'px-2.5 py-1 rounded bg-rose-500/20 text-rose-300 border border-rose-500/40 font-semibold';
+                badge.textContent = 'MODE: BUGGY_BUILD_v1.0';
+                telemetry.className = 'text-rose-400 font-semibold';
+                telemetry.textContent = '3 ACTIVE DEFECTS DETECTED';
+            } else {
+                btnFixed.className = 'px-4 py-2.5 rounded-lg text-xs sm:text-sm font-mono font-semibold transition-all flex items-center gap-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm';
+                btnBuggy.className = 'px-4 py-2.5 rounded-lg text-xs sm:text-sm font-mono font-semibold transition-all flex items-center gap-2 text-slate-400 hover:text-slate-200 border border-transparent';
+                badge.className = 'px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 font-semibold';
+                badge.textContent = 'MODE: REFERENCE_FIXED_v1.1';
+                telemetry.className = 'text-emerald-400 font-semibold';
+                telemetry.textContent = 'ALL ACCEPTANCE TESTS PASSING';
+            }
+            resetGame();
+        }
+
+        function resizeCanvas() {
+            const rect = wrapper.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+        }
+
+        function checkAABB(a, b) {
+            return (
+                a.x < b.x + b.w &&
+                a.x + a.w > b.x &&
+                a.y < b.y + b.h &&
+                a.y + a.h > b.y
+            );
+        }
+
+        function updateHUD() {
+            document.getElementById('hudScore').textContent = gameState.score;
+            document.getElementById('hudTimer').textContent = gameState.timer.toFixed(1) + 's';
+        }
+
+        function showEndOverlay(type) {
+            const overlay = document.getElementById('gameOverlay');
+            const icon = document.getElementById('overlayIcon');
+            const title = document.getElementById('overlayTitle');
+            const desc = document.getElementById('overlayDesc');
+
+            overlay.classList.remove('hidden');
+            if (type === 'WON') {
+                icon.className = 'w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-3';
+                icon.innerHTML = '<i class="fa-solid fa-trophy"></i>';
+                title.textContent = 'Acceptance Criteria Verified!';
+                desc.textContent = `Stage cleared with ${gameState.timer.toFixed(1)}s remaining. All 5 cores registered and portal state unlocked cleanly.`;
+            } else {
+                icon.className = 'w-12 h-12 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center text-2xl mb-3';
+                icon.innerHTML = '<i class="fa-solid fa-hourglass-end"></i>';
+                title.textContent = 'Evaluation Timeout (0.0s)';
+                desc.textContent = 'Time expired before all 5 energy cores were delivered to the active portal.';
+            }
+        }
+
+        function update(dt) {
+            if (gameState.status !== 'PLAYING') return;
+
+            // BUG-03: Timer progression (stalled in buggy mode)
+            if (buildMode === 'fixed') {
+                gameState.timer = Math.max(0, gameState.timer - dt);
+                if (gameState.timer <= 0) {
+                    gameState.status = 'TIMEOUT';
+                    updateHUD();
+                    showEndOverlay('TIMEOUT');
+                    return;
+                }
+            }
+
+            // BUG-01: Horizontal input direction (inverted in buggy mode)
+            const leftVal = keys.left ? 1 : 0;
+            const rightVal = keys.right ? 1 : 0;
+            if (buildMode === 'buggy') {
+                player.vx = (leftVal - rightVal) * player.speed;
+            } else {
+                player.vx = (rightVal - leftVal) * player.speed;
+            }
+
+            // Jump
+            if (keys.up && player.grounded) {
+                player.vy = player.jumpForce;
+                player.grounded = false;
+            }
+
+            // Apply gravity
+            player.vy += gravity * dt;
+
+            // Horizontal movement & arena bounds
+            player.x += player.vx * dt;
+            if (player.x < 0) player.x = 0;
+            if (player.x + player.w > WORLD_W) player.x = WORLD_W - player.w;
+
+            // Vertical movement & one-way/solid platform collisions
+            const prevBottom = player.y + player.h;
+            player.y += player.vy * dt;
+            player.grounded = false;
+
+            for (const plat of platforms) {
+                if (
+                    player.vy >= 0 &&
+                    prevBottom <= plat.y + 8 &&
+                    player.y + player.h >= plat.y &&
+                    player.x + player.w > plat.x + 4 &&
+                    player.x < plat.x + plat.w - 4
+                ) {
+                    player.y = plat.y - player.h;
+                    player.vy = 0;
+                    player.grounded = true;
+                }
+            }
+
+            // Coin pickups
+            for (const coin of coins) {
+                if (!coin.collected) {
+                    const coinBox = {
+                        x: coin.x - coin.r,
+                        y: coin.y - coin.r,
+                        w: coin.r * 2,
+                        h: coin.r * 2
+                    };
+                    if (checkAABB(player, coinBox)) {
+                        coin.collected = true;
+                        // BUG-02: Score increment omitted in buggy build
+                        if (buildMode === 'fixed') {
+                            gameState.score += 1;
+                        }
+                    }
+                }
+            }
+
+            // Exit Portal check (Unlocks when score === 5)
+            if (gameState.score >= 5 && checkAABB(player, portal)) {
+                gameState.status = 'WON';
+                updateHUD();
+                showEndOverlay('WON');
+                return;
+            }
+
+            updateHUD();
+        }
+
+        function draw(timestamp) {
+            const scaleX = canvas.width / WORLD_W;
+            const scaleY = canvas.height / WORLD_H;
+
+            ctx.save();
+            ctx.scale(scaleX, scaleY);
+
+            // Background fill
+            ctx.fillStyle = '#060b16';
+            ctx.fillRect(0, 0, WORLD_W, WORLD_H);
+
+            // Subtle arena grid lines
+            ctx.strokeStyle = 'rgba(34, 211, 238, 0.06)';
+            ctx.lineWidth = 1;
+            for (let gx = 0; gx < WORLD_W; gx += 32) {
+                ctx.beginPath();
+                ctx.moveTo(gx, 0);
+                ctx.lineTo(gx, WORLD_H);
+                ctx.stroke();
+            }
+            for (let gy = 0; gy < WORLD_H; gy += 32) {
+                ctx.beginPath();
+                ctx.moveTo(0, gy);
+                ctx.lineTo(WORLD_W, gy);
+                ctx.stroke();
+            }
+
+            // Draw Exit Portal
+            const portalUnlocked = gameState.score >= 5;
+            ctx.fillStyle = portalUnlocked ? 'rgba(16, 185, 129, 0.22)' : 'rgba(100, 116, 139, 0.15)';
+            ctx.strokeStyle = portalUnlocked ? '#10b981' : '#475569';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.roundRect(portal.x, portal.y, portal.w, portal.h, 8);
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.fillStyle = portalUnlocked ? '#34d399' : '#64748b';
+            ctx.font = 'bold 9px "JetBrains Mono", monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText(portalUnlocked ? 'EXIT' : 'LOCKED', portal.x + portal.w / 2, portal.y - 6);
+
+            // Draw Platforms
+            for (let i = 0; i < platforms.length; i++) {
+                const p = platforms[i];
+                ctx.fillStyle = i === 0 ? '#1e293b' : '#0f2942';
+                ctx.fillRect(p.x, p.y, p.w, p.h);
+
+                // Top neon edge highlight
+                ctx.fillStyle = i === 0 ? '#334155' : '#22d3ee';
+                ctx.fillRect(p.x, p.y, p.w, 3);
+            }
+
+            // Draw Energy Cores (Coins)
+            const pulse = Math.sin(timestamp / 180) * 2;
+            for (const c of coins) {
+                if (c.collected) continue;
+                ctx.beginPath();
+                ctx.arc(c.x, c.y, c.r + pulse * 0.4, 0, Math.PI * 2);
+                ctx.fillStyle = '#f59e0b';
+                ctx.fill();
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = '#fef3c7';
+                ctx.stroke();
+            }
+
+            // Draw Player Avatar
+            ctx.fillStyle = buildMode === 'buggy' ? '#fb7185' : '#22d3ee';
+            ctx.beginPath();
+            ctx.roundRect(player.x, player.y, player.w, player.h, 6);
+            ctx.fill();
+
+            // Visor detail
+            ctx.fillStyle = '#080d1a';
+            ctx.fillRect(player.x + 5, player.y + 7, player.w - 10, 7);
+
+            ctx.restore();
+        }
+
+        function gameLoop(timestamp) {
+            if (!lastTime) lastTime = timestamp;
+            const dt = Math.min((timestamp - lastTime) / 1000, 0.05);
+            lastTime = timestamp;
+
+            update(dt);
+            draw(timestamp);
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Keyboard Listeners
+        window.addEventListener('keydown', (e) => {
+            if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'Space'].includes(e.code)) {
+                e.preventDefault();
+            }
+            if (e.code === 'ArrowLeft' || e.code === 'KeyA') keys.left = true;
+            if (e.code === 'ArrowRight' || e.code === 'KeyD') keys.right = true;
+            if (e.code === 'ArrowUp' || e.code === 'KeyW' || e.code === 'Space') keys.up = true;
+        });
+
+        window.addEventListener('keyup', (e) => {
+            if (e.code === 'ArrowLeft' || e.code === 'KeyA') keys.left = false;
+            if (e.code === 'ArrowRight' || e.code === 'KeyD') keys.right = false;
+            if (e.code === 'ArrowUp' || e.code === 'KeyW' || e.code === 'Space') keys.up = false;
+        });
+
+        // Touch & Mouse Button Bindings for Mobile/Tablet
+        function bindControlBtn(id, keyProp) {
+            const el = document.getElementById(id);
+            const press = (e) => { e.preventDefault(); keys[keyProp] = true; };
+            const release = (e) => { e.preventDefault(); keys[keyProp] = false; };
+            el.addEventListener('mousedown', press);
+            el.addEventListener('mouseup', release);
+            el.addEventListener('mouseleave', release);
+            el.addEventListener('touchstart', press, { passive: false });
+            el.addEventListener('touchend', release, { passive: false });
+        }
+
+        bindControlBtn('touchLeft', 'left');
+        bindControlBtn('touchRight', 'right');
+        bindControlBtn('touchJump', 'up');
+
+        window.addEventListener('resize', resizeCanvas);
+
+        window.onload = function () {
+            resizeCanvas();
+            resetGame();
+            requestAnimationFrame(gameLoop);
+        };
+    </script>
+</body>
+</html>
